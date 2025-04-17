@@ -6,12 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\Genre;
 use App\Models\Books;
 use Illuminate\Support\Facades\File;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use App\Http\Middleware\IsAdmin;
 
-class BooksController extends Controller
+class BooksController extends Controller implements HasMiddleware
 {
     /**
      * Display a listing of the resource.
      */
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware(['auth', IsAdmin::class], except: ['index', 'show'])
+        ];
+    }
     public function index()
     {
         $books = Books::all();
@@ -130,11 +140,11 @@ class BooksController extends Controller
     {
         $books = Books::find($id);
 
-         // Hapus image
-         File::delete('image/' . $books->image);
+        // Hapus image
+        File::delete('image/' . $books->image);
 
-         $books->delete();
+        $books->delete();
 
-         return redirect('/books');
+        return redirect('/books');
     }
 }

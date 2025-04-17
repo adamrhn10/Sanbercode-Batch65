@@ -5,7 +5,11 @@ Tampil Books
 @endsection
 
 @section('content')
+@auth
+@if (Auth()->user()->role === 'admin')
 <a href="/books/create" class="btn btn-primary mb-2">Tambah</a>
+@endif
+@endauth
 
 <div class="row">
     @forelse ($books as $item)
@@ -18,9 +22,11 @@ Tampil Books
                       <div class="d-grid">
                         <a href="/books/{{$item->id}}" class="btn btn-info">Read More</a>
                       </div>
-                      <div class="row">
+                      @auth    
+                      @if (Auth()->user()->role === 'admin')
+                      <div class="row mt-3">
                         <div class="col">
-                            <div class="d-grid my-1">
+                            <div class="d-grid gap-2">
                                 <a href="/books/{{$item->id}}/edit" class="btn btn-warning">Edit</a>
                             </div>
                         </div>
@@ -28,12 +34,14 @@ Tampil Books
                             <form action="/books/{{$item->id}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                            <div class="d-grid my-1">
+                            <div class="d-grid gap-2">
                                 <input type="submit" class="btn btn-danger" value="Delete">
                             </div>
                         </form>
                         </div>
                       </div>
+                      @endif
+                      @endauth
                     </div>
                   </div>
             </div>

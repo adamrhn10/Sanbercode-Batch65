@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\GenreController;
+use App\Http\Controllers\BooksController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -27,3 +28,6 @@ Route::put('/genre/{id}', [GenreController::class, 'update']);
 
 // D - DELETE
 Route::delete('/genre/{id}', [GenreController::class, 'destroy']);
+
+// CRUD BOOKS
+Route::resource('books', BooksController::class);

@@ -40,7 +40,7 @@
 
   @include('partials.nav')
 
-  <main class="main" style="height: 150vh">
+  <main class="main" style="min-height: 90vh">
 
    
     <!-- Starter Section Section -->

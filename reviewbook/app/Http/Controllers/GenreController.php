@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\carbon;
+use App\Models\Genre;
 use Illuminate\Support\Facades\Redis;
 
 class GenreController extends Controller
@@ -42,13 +43,14 @@ class GenreController extends Controller
     public function index()
     {
         $genres = DB::table('genres')->get();
+        // $genres = Genre::get();
 
         return view('genre.tampil', ['genres' => $genres]);
     }
 
     public function show($id)
     {
-        $genre = DB::table('genres')->find($id);
+        $genre = Genre::find($id);
 
         return view('genre.detail', ['genre' => $genre]);
     }

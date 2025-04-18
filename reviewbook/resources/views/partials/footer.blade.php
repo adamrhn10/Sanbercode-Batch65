@@ -1,14 +1,16 @@
-<footer id="footer" class="footer dark-background">
-      
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Company</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed by <a href=“https://themewagon.com>ThemeWagon
-      </div>
+<footer id="footer" class="footer bg-dark text-light py-4">
+  <div class="container text-center">
+
+    <p class="mb-2">
+      &copy; <span>{{ date('Y') }}</span> 
+      <strong class="px-1 sitename">Adam Raihan</strong> 
+      <span>All Rights Reserved</span>
+    </p>
+
+    <div class="credits small">
+      Designed by <a href="https://bootstrapmade.com/" class="text-info text-decoration-none" target="_blank">BootstrapMade</a> | 
+      Distributed by <a href="https://themewagon.com" class="text-info text-decoration-none" target="_blank">ThemeWagon</a>
     </div>
 
-  </footer>
+  </div>
+</footer>

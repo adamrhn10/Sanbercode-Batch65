@@ -5,6 +5,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\IsAdmin;
 use  App\Http\Middleware\VerifyCsrfToken;
@@ -12,7 +13,9 @@ use Illuminate\Routing\Route as RoutingRoute;
 
 Route::get('/', [DashboardController::class, 'home']);
 Route::get('/register', [FormController::class, 'register']);
+
 Route::post('/welcome', [FormController::class, 'welcome']);
+Route::get('/welcome', [FormController::class, 'welcome']);
 
 Route::middleware(['auth', IsAdmin::class])->group(function () {
     // CRUD
@@ -49,3 +52,11 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 // Logout 
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
+
+// Profile
+Route::get('/profile', [AuthController::class, 'getProfile'])->middleware(('auth'));
+Route::post('/profile', [AuthController::class, 'createProfile'])->middleware(('auth'));
+Route::put('/profile/{id}', [AuthController::class, 'updateProfile'])->middleware(('auth'));
+
+// Comments
+Route::post('/comments/{post_id}', [CommentController::class, 'store'])->middleware('auth');

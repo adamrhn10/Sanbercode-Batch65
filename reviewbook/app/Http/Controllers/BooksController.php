@@ -10,6 +10,7 @@ use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use App\Http\Middleware\IsAdmin;
 
+
 class BooksController extends Controller implements HasMiddleware
 {
     /**

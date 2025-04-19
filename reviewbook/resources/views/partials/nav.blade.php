@@ -3,20 +3,20 @@
 
     <!-- Logo -->
     <div>
-    <a href="/" class="logo d-flex align-items-center me-auto">
-      {{-- Uncomment jika ingin pakai gambar logo --}}
-      {{-- <img src="{{ asset('template/assets/img/logo.png') }}" alt="Logo"> --}}
-      @auth
-        <h1 class="sitename mb-0">{{ Auth()->user()->name }}</h1><span class="ms-1">.</span>
-      @endauth
-      @guest 
-        <h1 class="sitename mb-0">Sanberbook</h1><span class="ms-1">.</span>
-      @endguest
-    </a>
+      <a href="/" class="logo d-flex align-items-center me-auto">
+        {{-- Uncomment jika ingin pakai gambar logo --}}
+        {{-- <img src="{{ asset('template/assets/img/logo.png') }}" alt="Logo"> --}}
+        @auth
+          <h1 class="sitename mb-0">{{ Auth()->user()->name }}</h1><span class="ms-1">.</span>
+        @endauth
+        @guest 
+          <h1 class="sitename mb-0">Sanberbook</h1><span class="ms-1">.</span>
+        @endguest
+      </a>
     </div>
 
     <!-- Navigation Menu -->
-    <nav id="navmenu" class="navmenu">
+    <nav id="navmenu" class="navmenu d-none d-xl-block">
       <ul class="d-flex align-items-center mb-0">
         <li><a href="/">Home</a></li>
         <li><a href="/genre">Genre</a></li>
@@ -25,8 +25,10 @@
           <li><a href="/profile">Profile</a></li>
         @endauth
       </ul>
-      <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
+
+    <!-- Mobile Nav Toggle Button -->
+    <i class="mobile-nav-toggle d-xl-none bi bi-list" style="font-size: 28px; cursor: pointer;"></i>
 
     <!-- Auth Buttons -->
     <div class="d-flex align-items-center ms-3">
@@ -44,4 +46,26 @@
     </div>
 
   </div>
+
+  <!-- Mobile Nav Menu -->
+  <div id="mobile-nav" class="d-xl-none bg-light position-absolute top-100 start-0 w-100 shadow d-none">
+    <ul class="list-unstyled p-3 mb-0">
+      <li><a href="/" class="d-block py-2">Home</a></li>
+      <li><a href="/genre" class="d-block py-2">Genre</a></li>
+      <li><a href="/books" class="d-block py-2">Buku</a></li>
+      @auth
+        <li><a href="/profile" class="d-block py-2">Profile</a></li>
+      @endauth
+    </ul>
+  </div>
 </header>
+
+<!-- Script untuk toggle mobile menu -->
+<script>
+  const toggleBtn = document.querySelector('.mobile-nav-toggle');
+  const mobileNav = document.getElementById('mobile-nav');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('d-none');
+  });
+</script>

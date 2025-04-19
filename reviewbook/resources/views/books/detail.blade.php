@@ -21,6 +21,7 @@
     
     <h1 class="my-3">{{ $books->title }}</h1>
     <p class="my-3">{{ $books->summary }}</p>
+    <p class="mt-4"><strong>Ketersediaan Stok:</strong> {{ $books->stok }}</p>
     <a href="/books" class="btn btn-secondary">
       <i class="bi bi-arrow-left"></i> Kembali
     </a>    

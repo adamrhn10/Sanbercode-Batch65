@@ -9,8 +9,8 @@ Home
 <div class="container">
     <div class="text-center mb-5">
         <h1 class="display-4 fw-bold">SanberBook</h1>
-        <p class="lead">Social Media Developer Santai Berkualitas</p>
-        <p>Belajar dan Berbagi agar hidup ini semakin berkualitas</p>
+        <p class="lead">Tempat Nongkrongnya Pecinta Buku</p>
+        <p>Belajar, berbagi, dan ngobrol soal buku biar hidup makin seru!</p>
     </div>
 
     <div class="row justify-content-center">
@@ -20,9 +20,9 @@ Home
                 <div class="card-body">
                     <h3 class="card-title">Benefit Join di SanberBook</h3>
                     <ul class="list-group list-group-flush mt-3">
-                        <li class="list-group-item">Mendapatkan motivasi dari sesama developer</li>
-                        <li class="list-group-item">Sharing knowledge dari para mastah Sanber</li>
-                        <li class="list-group-item">Dibuat oleh calon web developer terbaik</li>
+                        <li class="list-group-item">Dapat motivasi baca dari teman-teman sesama booklover</li>
+                        <li class="list-group-item">Sharing review dan rekomendasi buku dari yang udah berpengalman</li>
+                        <li class="list-group-item">Komunitas seru yang dibangun oleh para pembaca kece</li>
                     </ul>
                 </div>
             </div>
